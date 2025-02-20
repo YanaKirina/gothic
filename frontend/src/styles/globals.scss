@@ -1,5 +1,27 @@
-$primary-color: #1e3a8a; // Тёмно-синий
-body {
-  background-color: $primary-color;
-  color: white;
+@import "@/styles/_variables.scss"; // Импортируем переменные
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+.no-scroll {
+  overflow: hidden; // Убираем скролл только на странице регистрации
+  
+}
+
+.layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.content {
+  height: 100%;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $secondary-color;
 }

@@ -1,0 +1,49 @@
+@import "@/styles/_variables.scss"; // Импортируем только переменные
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 10vw;
+  background: $background-color;
+
+}
+.menu {
+  display: flex;
+  gap: 50px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  li {
+    font-size: 16px;
+    a {
+      text-decoration: none;
+      color: $secondary-color;
+      &:hover {
+        color: $primary-color;
+      }
+    }
+  }
+}
+
+.icons {
+  display: flex;
+  gap: 20px;
+
+  img{
+    width: 25px; 
+    height: 25px;
+    padding: 40px 10px 15px 10px;
+    margin-top: -40px;
+    display: flex;
+    background-color: $secondary-color; 
+    cursor: pointer;
+
+    &:hover {
+      background-color: $primary-color;
+    }
+  }
+}
+
+

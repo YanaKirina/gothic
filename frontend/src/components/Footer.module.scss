@@ -1,0 +1,97 @@
+@import "@/styles/_variables.scss";
+
+.footer {
+  background-color: $background-color;
+  color: $secondary-color;
+  padding: 100px 10vw;
+}
+
+// .container {
+//   // margin: 0 auto;
+//   // padding: 0 1rem;
+//   // display: flex;
+//   // flex-direction: column;
+//   // align-items: center;
+//   // text-align: center;
+//   // gap: 2rem;
+// }
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  // width: 100%;
+  flex-direction: row;
+  // justify-content: space-between;
+}
+
+.leftSection {
+  flex: 2;
+  color: $primary-color;
+}
+
+.rightSection {
+  flex: 1;
+  display: flex;
+  gap: 2rem;
+}
+
+
+.privacy {
+  color: $secondary-color;
+  font-size: 14px;
+}
+
+
+.navigation, .contacts {
+  flex: 1;
+}
+
+.navigation {
+  .navTitle {
+    font-size: 1.125rem;
+    font-weight: bold;
+  }
+  .navList {
+    list-style: none;
+    padding: 0;
+    margin-top: 0.5rem;
+    
+    li {
+      margin-top: 0.25rem;
+      
+      a {
+        color: white;
+        text-decoration: none;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
+
+.contacts {
+  .contactsTitle {
+    font-size: 1.125rem;
+    font-weight: bold;
+  }
+  .email {
+    color: $primary-color;
+    text-decoration: underline;
+  }
+  .socialIcons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 0.5rem;
+
+    a {
+      color: white;
+      transition: color 0.3s;
+
+      &:hover {
+        color: #4a90e2;
+      }
+    }
+  }
+}

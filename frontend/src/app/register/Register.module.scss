@@ -1,0 +1,73 @@
+@import "@/styles/_variables.scss"; // Подключаем переменные
+
+// .container {
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+// }
+
+
+
+.formWrapper {
+  background: #fff;
+  padding: 35px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 450px;
+}
+
+.title {
+  font-size: 35px;
+  margin-bottom: 20px;
+  margin-top: 0px;
+  color: $background-color;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.input {
+  // width: 100%;
+  padding: 10px;
+  border: 1px solid $background-color;
+  // border-radius: 5px;
+  font-size: 14px;
+}
+
+.button {
+  width: 100%;
+  padding: 10px;
+  background: $background-color;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.button:hover {
+  background: darken($background-color, 10%);
+}
+
+.footer {
+  margin-top: 15px;
+  padding: 10px;
+  background: $background-color;
+  color: #fff;
+  font-size: 14px;
+  border-radius: 0 0 10px 10px;
+}
+
+.loginLink {
+  font-style: italic;
+  margin-left: 5px;
+  color: #fff;
+  text-decoration: none;
+}
+
+.loginLink:hover {
+  text-decoration: underline;
+}
