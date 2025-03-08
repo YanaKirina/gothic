@@ -1,27 +1,17 @@
-@import "@/styles/_variables.scss"; // Импортируем переменные
+@use "@/styles/_variables.scss" as *;
+ // Импортируем переменные
 
 html, body {
   margin: 0;
   padding: 0;
   height: 100%;
+  width: 100%;
+  color: $black;
+  overflow-x: hidden;
 }
 
-.no-scroll {
-  overflow: hidden; // Убираем скролл только на странице регистрации
-  
+h2{
+  font-size: 50px;
 }
 
-.layout {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
 
-.content {
-  height: 100%;
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: $secondary-color;
-}

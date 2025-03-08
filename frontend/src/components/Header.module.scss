@@ -1,0 +1,40 @@
+@use "@/styles/_variables.scss" as *;
+
+.header {
+    background-color: $black;
+    margin: 0;
+    color: $white;
+    padding: 0px 8vw;
+    display: flex;
+
+    .info{
+        width: 50%;
+      }
+
+    h1{
+      font-size: 100px;
+      border-bottom: solid 2px;
+      border-color: $white;
+      max-width: 600px;
+    }
+
+    h2{
+      font-size: 50px;
+    }
+    
+    span{
+      display: flex;
+      font-size: 30px;
+      gap: 30px;
+    }
+    button{
+      font-size: 18px;
+      padding: 15px 130px;
+      color: $white;
+      background-color: $blue;
+      border: 0;
+      cursor: pointer;
+      
+    }
+
+  }

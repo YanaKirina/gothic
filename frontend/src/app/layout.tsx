@@ -2,6 +2,7 @@
 
 import { usePathname } from "next/navigation";
 import Navbar from "@/components/Navbar";
+import NavbarRegister from "@/components/NavbarRegister";
 import Footer from "@/components/Footer";
 import "@/styles/globals.scss";
 
@@ -11,12 +12,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
   return (
     <html lang="ru">
-      <body className={isRegisterPage ? "no-scroll" : ""}>
-        <div className="layout">
-          <Navbar />
-          <main className="content">{children}</main>
+      <body>
+          <Navbar/>
+          <main>{children}</main>
           <Footer />
-        </div>
       </body>
     </html>
     

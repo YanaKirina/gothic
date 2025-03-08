@@ -9,12 +9,12 @@ export default function RegisterPage() {
           <input type="email" placeholder="E-mail" className={styles.input} />
           <input type="password" placeholder="Пароль" className={styles.input} />
           <input type="password" placeholder="Повторите пароль" className={styles.input} />
-          <button type="submit" className={styles.button}>Регистрация</button>
         </form>
-        <div className={styles.footer}>
-          <span>Есть аккаунт ?</span>
+        <button type="submit" className={styles.button}>Регистрация</button>
+        <button className={styles.button}>
+          <span>Есть аккаунт?</span>
           <a href="/login" className={styles.loginLink}>Войти</a>
-        </div>
+        </button>
       </div>
     </div>
   );

@@ -1,0 +1,46 @@
+@use "@/styles/_variables.scss" as *;
+
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    gap: 30px;
+    color: $black;
+
+    div{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr); // 3 колонки
+        gap: 20px;
+        width: 100%;
+
+    }
+    button{
+        background-color: $white;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        border: 0px;
+        font-size: 30px;
+        transition: 0.3s ease-in-out;
+        &:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+          }
+        img {
+            max-width: 100%;
+            height: auto;
+            flex-grow: 1;
+            padding-bottom: 10px;
+        }
+        &:last-child {
+            background-color: $black;
+            color: $white;
+        }
+    }
+        
+}
+

@@ -1,49 +1,105 @@
-@import "@/styles/_variables.scss"; // Импортируем только переменные
+@use "@/styles/_variables.scss" as *;
 
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 30px 10vw;
-  background: $background-color;
-
-}
-.menu {
-  display: flex;
-  gap: 50px;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-
-  li {
-    font-size: 16px;
-    a {
-      text-decoration: none;
-      color: $secondary-color;
-      &:hover {
-        color: $primary-color;
-      }
-    }
-  }
+  padding: 30px 8vw;
+  background-color: $black;
+  position: relative;
 }
 
 .icons {
   display: flex;
   gap: 20px;
-
-  img{
-    width: 25px; 
-    height: 25px;
-    padding: 40px 10px 15px 10px;
+  margin-left: auto;
+  button{
+    background-color: white;
+    width: 50px;
+    height: 100px;
+    border: 0;
     margin-top: -40px;
-    display: flex;
-    background-color: $secondary-color; 
-    cursor: pointer;
+  &:hover {
+      background-color: $blue;
+      cursor: pointer;
+    }}
 
-    &:hover {
-      background-color: $primary-color;
+  img {
+    padding-top: 40px;
+    
+  }
+}
+
+.menu {
+  display: flex;
+  gap: 30px;
+  list-style: none;
+  padding-left: 100px;
+
+  li {
+    font-size: 16px;
+    a {
+      text-decoration: none;
+      color: $white;
+      &:hover {
+        color: $blue;
+      }
     }
   }
 }
 
+.logo {
+  width: 250px;
+}
 
+/* Логотип на регистрации */
+// .logoCenter {
+//   position: absolute;
+//   left: 50%;
+//   transform: translateX(-50%);
+//   padding: 20px;
+// }
+
+.burger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 100;
+
+  span {
+    display: block;
+    width: 30px;
+    height: 4px;
+    background: $white;
+    border-radius: 2px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .navbar {
+    padding: 25px 5vw;
+  }
+
+  .logo {
+    width: 150px;
+  }
+
+  .icons {
+    display: flex;
+    gap: 10px;
+    margin-left: auto;
+
+    img {
+      width: 20px;
+      height: 20px;
+      padding: 30px 5px 10px 5px;
+    }
+  }
+
+  .burger {
+    display: flex;
+  }
+}

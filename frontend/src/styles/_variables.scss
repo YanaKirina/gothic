@@ -1,6 +1,12 @@
 // src/styles/_variables.scss
-$primary-color: #8FA0C3;
-$secondary-color: #EDF2FC;
-$background-color: #090B2D;
+$blue: #8FA0C3;
+$white: #EDF2FC;
+$black: #090B2D;
+$violet: #3A3C5F;
 
 $pading: 10wv;
+
+
+.container{
+    padding: 40px 8vw;
+  }
