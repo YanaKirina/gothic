@@ -5,6 +5,10 @@ import { api } from "@/utils/api"; // Путь зависит от вашей с
 import Header from "@/components/Header";
 import Categories from "@/components/Categories";
 import Slider from "@/components/Slider";
+import '../styles/globals.scss';
+
+
+
 
 const bestSellers = [
   {
@@ -47,14 +51,22 @@ export default function Home() {
         cardBackground=""
         buttonBackground=""
       />
-
       <Slider
         title="Новинки"
         backgroundColor="white"
         cardBackground="#EDF2FC"
         buttonBackground="white"
       />
-      
+      <div className="stocks">
+        <div>
+          <h2>1 + 1 = 3</h2>
+          <p>Закажите два товара и получите третий бесплатно</p>
+          <button>Перейти в каталог</button>
+        </div>
+        <div>
+          <img src="/icons/LogoLeft.svg"/>
+        </div>
+      </div>
     </main>
   );
 }
