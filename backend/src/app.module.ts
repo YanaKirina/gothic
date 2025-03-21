@@ -4,7 +4,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 // import { AppController } from './app.controller';
 import { getPostgresConfig } from './configs/postgres.config';
 // import { ItemsController } from './items/items.controller';
-import { UsersModule } from './auth/users.module';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -15,7 +15,7 @@ import { UsersModule } from './auth/users.module';
         getPostgresConfig(configService),
       inject: [ConfigService],
     }),
-    UsersModule, // <-- Добавляем модуль пользователей
+    AuthModule,
   ],
 })
 export class AppModule {}

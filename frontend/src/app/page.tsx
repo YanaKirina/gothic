@@ -43,7 +43,7 @@ export default function Home() {
 
   return (
     <main>
-      <Header />
+      {/* <Header /> */}
       <Categories />
       <Slider
         title="Лучшие продажи"
@@ -67,6 +67,18 @@ export default function Home() {
           <img src="/icons/LogoLeft.svg"/>
         </div>
       </div>
+      <Slider
+        title="Мы рекомендуем"
+        backgroundColor="white"
+        cardBackground="#EDF2FC"
+        buttonBackground="white"
+      />
+      <Slider
+        title="Скидки"
+        backgroundColor=""
+        cardBackground=""
+        buttonBackground=""
+      />
     </main>
   );
 }
