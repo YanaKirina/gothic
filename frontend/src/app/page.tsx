@@ -43,8 +43,8 @@ export default function Home() {
 
   return (
     <main>
-      {/* <Header /> */}
-      <Categories />
+      <Header />
+      {/* <Categories />
       <Slider
         title="Лучшие продажи"
         backgroundColor=""
@@ -78,7 +78,7 @@ export default function Home() {
         backgroundColor=""
         cardBackground=""
         buttonBackground=""
-      />
+      /> */}
     </main>
   );
 }

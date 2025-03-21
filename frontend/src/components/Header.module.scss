@@ -1,40 +1,65 @@
 @use "@/styles/_variables.scss" as *;
 
 .header {
-    background-color: $black;
-    margin: 0;
-    color: $white;
-    padding: 0px 8vw;
+  background-color: $black;
+  color: $white;
+  padding: 0 7vw;
+  margin-top: -1px;
+  display: flex;
+
+  .info {
+    width: 50%;
+    padding-bottom: 20px;
+  }
+
+  h1 {
+    font-size: 100px;
+    border-bottom: solid 2px;
+    border-color: $white;
+    max-width: 600px;
+    min-width: none;
+  }
+
+  span {
     display: flex;
+    // font-size: 30px;
+    gap: 30px;
+  }
+  button {
+    font-size: 18px;
+    padding: 15px 8vw;
+    color: $white;
+    background-color: $blue;
+    border: 0;
+    cursor: pointer;
+  }
+  img {
+    object-fit: cover;
+    width: 50%;
+    bottom: 0px;
+  }
+}
 
-    .info{
-        width: 50%;
-      }
+@media (max-width: 1024px) {
+  .header {
+    padding: 0px 5vw;
 
-    h1{
-      font-size: 100px;
-      border-bottom: solid 2px;
-      border-color: $white;
-      max-width: 600px;
+    h1 {
+      font-size: 80px;
     }
+  }
+}
 
-    h2{
+@media (max-width: 768px) {
+  .header {
+    h1 {
       font-size: 50px;
     }
-    
-    span{
-      display: flex;
-      font-size: 30px;
-      gap: 30px;
-    }
-    button{
-      font-size: 18px;
-      padding: 15px 130px;
-      color: $white;
-      background-color: $blue;
-      border: 0;
-      cursor: pointer;
-      
-    }
+    button {
 
+      padding: 10px 8vw;
+      font-size: 16px;
+
+    }
   }
+}
