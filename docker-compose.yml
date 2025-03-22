@@ -5,20 +5,20 @@ services:
     build: ./
     working_dir: /app
     volumes:
-      - ${PWD:-./}/frontend:/app
+      - ./frontend:/app
     ports:
       - "3000:3000"
     depends_on:
       - backend
     environment:
       - NEXT_PUBLIC_API_URL=http://backend:5001
-    command: ["/bin/sh", "-c", "chmod +x /app/scripts/development.sh && /app/scripts/development.sh"]
+    command: ["/bin/sh", "-c", "/app/scripts/development.sh"]
 
   backend:
     build: ./
     working_dir: /app/backend
     volumes:
-      - ${PWD:-./}/backend:/app
+      - ./backend:/app
     ports:
       - "5000:5000"
     depends_on:
@@ -26,7 +26,8 @@ services:
         condition: service_healthy
     environment:
       - DATABASE_URL=postgresql://postgres:password@database:5432/mydb
-    command: ["/bin/sh", "-c", "chmod +x /app/scripts/development.sh && /app/scripts/development.sh"]
+    command: ["/bin/sh", "-c", "/app/scripts/development.sh"]
+    # command: ["sleep", "1000000"]
 
   database:
     image: postgres:15
