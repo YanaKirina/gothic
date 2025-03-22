@@ -2,21 +2,23 @@ version: '3.8'
 
 services:
   frontend:
-    build:
-      context: ./frontend
-      dockerfile: Dockerfile
+    build: ./
+    working_dir: /app
+    volumes:
+      - ${PWD:-./}/frontend:/app
     ports:
       - "3000:3000"
     depends_on:
       - backend
     environment:
-      - NEXT_PUBLIC_API_URL=http://backend:5000
-    command: ["npm", "run", "dev"]
+      - NEXT_PUBLIC_API_URL=http://backend:5001
+    command: ["/bin/sh", "-c", "chmod +x /app/scripts/development.sh && /app/scripts/development.sh"]
 
   backend:
-    build:
-      context: ./backend
-      dockerfile: Dockerfile
+    build: ./
+    working_dir: /app/backend
+    volumes:
+      - ${PWD:-./}/backend:/app
     ports:
       - "5000:5000"
     depends_on:
@@ -24,7 +26,7 @@ services:
         condition: service_healthy
     environment:
       - DATABASE_URL=postgresql://postgres:password@database:5432/mydb
-    command: ["npm", "run", "start:dev"]
+    command: ["/bin/sh", "-c", "chmod +x /app/scripts/development.sh && /app/scripts/development.sh"]
 
   database:
     image: postgres:15
