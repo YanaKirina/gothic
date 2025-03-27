@@ -7,7 +7,7 @@ html, body {
   height: 100%;
   // width: 100%;
   color: $black;
-  overflow-x: hidden;
+  // overflow-x: hidden;
 }
 
 h2{
@@ -64,9 +64,25 @@ span {
     font-size: 30px;
   }
   span {
-    font-size: 20px;
+    font-size: 16px;
   }
   button{
     font-size: 18px;
   }
 }
+
+// @media (max-width: 600px) {
+
+//   span {
+//     font-size: 15px;
+//   }
+
+// }
+
+// @media (max-width: 425px) {
+
+//   span {
+//     font-size: 14px;
+//   }
+
+// }

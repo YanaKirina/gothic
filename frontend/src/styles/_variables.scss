@@ -4,9 +4,13 @@ $white: #EDF2FC;
 $black: #090B2D;
 $violet: #3A3C5F;
 
-$pading: 10wv;
-
 
 .container{
-    padding: 40px 8vw;
+  padding: 40px 7vw;
+}
+
+@media (max-width: 1024px) {
+  .container{
+    padding: 15px 5vw;
   }
+}
