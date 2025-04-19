@@ -10,6 +10,8 @@ export default function RegisterPage() {
     email: "",
     password: "",
     confirmPassword: "",
+    firstName: "",
+    lastName: "",
   });
   const [error, setError] = useState("");
 
@@ -31,6 +33,8 @@ export default function RegisterPage() {
         body: JSON.stringify({
           email: formData.email,
           password: formData.password,
+          firstName: formData.firstName,
+          lastName: formData.lastName,
         }),
       });
 
@@ -39,10 +43,13 @@ export default function RegisterPage() {
         throw new Error(errorData.message || "Ошибка при регистрации");
       }
 
-      // Получаем токен как текст, а не как JSON
-      const token = await response.text();
-      localStorage.setItem("token", token);
-      router.push("/"); // Перенаправляем на главную страницу после успешной регистрации
+      const data = await response.json();
+      
+      // Сохраняем данные пользователя в localStorage
+      localStorage.setItem('user', JSON.stringify(data.user));
+      
+      // Перенаправляем на страницу профиля
+      router.push("/profile");
     } catch (err) {
       setError(err instanceof Error ? err.message : "Ошибка при регистрации");
     }
@@ -59,6 +66,7 @@ export default function RegisterPage() {
     <div className={styles.container}>
       <div className={styles.formWrapper}>
         <h2 className={styles.title}>Регистрация</h2>
+        {error && <div className={styles.error}>{error}</div>}
         <form className={styles.form} onSubmit={handleSubmit}>
           <input
             type="email"
@@ -66,6 +74,24 @@ export default function RegisterPage() {
             placeholder="E-mail"
             className={styles.input}
             value={formData.email}
+            onChange={handleChange}
+            required
+          />
+          <input
+            type="text"
+            name="firstName"
+            placeholder="Имя"
+            className={styles.input}
+            value={formData.firstName}
+            onChange={handleChange}
+            required
+          />
+          <input
+            type="text"
+            name="lastName"
+            placeholder="Фамилия"
+            className={styles.input}
+            value={formData.lastName}
             onChange={handleChange}
             required
           />
@@ -81,23 +107,16 @@ export default function RegisterPage() {
           <input
             type="password"
             name="confirmPassword"
-            placeholder="Повторите пароль"
+            placeholder="Подтвердите пароль"
             className={styles.input}
             value={formData.confirmPassword}
             onChange={handleChange}
             required
           />
-          {error && <p className={styles.error}>{error}</p>}
           <button type="submit" className={styles.button}>
-            Регистрация
+            Зарегистрироваться
           </button>
         </form>
-        <button className={styles.button}>
-          <span>Есть аккаунт?</span>
-          <a href="/login" className={styles.loginLink}>
-            Войти
-          </a>
-        </button>
       </div>
     </div>
   );

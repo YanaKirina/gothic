@@ -1,0 +1,142 @@
+@use "@/styles/_variables.scss" as *;
+
+.container{
+    background-color: $white;
+    display: flex;
+    flex-direction: row;
+    gap: 100px;
+}
+
+.content{
+    flex: 1;
+}
+
+.sidebar{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    button {
+        display: flex;
+        flex-direction: row;
+        font-weight: bold;
+        gap: 20px;
+        font-size: 18px;
+        padding: 0px 20px;
+        width: 80%;
+        color: $white;
+        background-color: $black;
+        cursor: pointer;
+        img{
+            filter: invert(100%) brightness(200%);
+        }
+      }
+      button:last-child{
+        background-color: $blue;
+      }
+
+    
+}
+
+.profile {
+    max-width: 700px;
+    margin: 0 auto;
+    // padding: 2rem;
+    font-weight: bold;
+    color: $black;
+  
+    h2 {
+      margin: 0.2rem 0;
+    }
+  
+    .upload {
+      cursor: pointer;
+      // font-size: 0.9rem;
+      color: #031412;
+  
+      span {
+        color: $violet;
+        font-size: 0.8rem;
+      }
+    }
+  }
+  
+  .top {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    margin-bottom: 1.5rem;
+  
+    img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+  }
+  
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  
+    .full {
+      grid-column: span 2;
+    }
+  
+    input {
+      padding: 0.6rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+    }
+  }
+  
+  .passwordSection {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    margin-bottom: 2rem;
+  
+    input {
+      flex: 1;
+      padding: 0.6rem;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+  
+    button {
+      background-color: $black;
+      font-weight: bold;
+      color: white;
+      border: none;
+      padding: 0.6rem 1rem;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+  }
+  
+  .payment {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  
+    input {
+      flex: 1;
+      padding: 0.6rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+  }
+  
+  .save {
+    background-color: $black;
+    font-weight: bold;
+    color: white;
+    padding: 0.8rem 2rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  

@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import styles from "./Header.module.scss";
+import styles from "./styles/Header.module.scss";
 
 const Header = () => {
   return (

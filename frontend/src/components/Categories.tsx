@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import styles from "./Categories.module.scss";
+import styles from "./styles/Categories.module.scss";
 
 const Categories = () => {
     return (

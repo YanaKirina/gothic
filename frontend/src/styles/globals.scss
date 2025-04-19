@@ -1,18 +1,63 @@
 @use "@/styles/_variables.scss" as *;
- // Импортируем переменные
+
+@font-face {
+  font-family: 'Rubik Wet Paint';
+  src: url('../fonts/Rubik Wet Paint/RubikWetPaint-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Mont';
+  src: url('../fonts/Mont/Mont-ExtraLightDEMO.otf') format('opentype');
+  font-weight: 200;
+  font-style: normal;
+}
+
+
+@font-face {
+  font-family: 'Lighthaus';
+  src: url('../fonts/Lighthaus/Lighthaus.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
 
 html, body {
   margin: 0;
   padding: 0;
   height: 100%;
-  // width: 100%;
+  width: 100%;
   color: $black;
-  // overflow-x: hidden;
+  overflow-x: hidden;
+  font-size: 18px;
+  font-family: 'Mont';
+  font-weight: 400;
 }
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+button {
+  font-family: inherit;
+  font-size: inherit;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
 
 h2{
   font-size: 50px;
+  font-family: 'Lighthaus';
 }
+
+
 span {
   font-size: 30px;
 }
@@ -49,6 +94,8 @@ span {
   }
 }
 
+
+
 @media (max-width: 1024px) {
   h2{
     font-size: 40px;
@@ -56,7 +103,7 @@ span {
   span {
     font-size: 25px;
   }
-  
+
 }
 
 @media (max-width: 768px) {
@@ -67,22 +114,8 @@ span {
     font-size: 16px;
   }
   button{
-    font-size: 18px;
+    font-size: 16px;
   }
+
 }
 
-// @media (max-width: 600px) {
-
-//   span {
-//     font-size: 15px;
-//   }
-
-// }
-
-// @media (max-width: 425px) {
-
-//   span {
-//     font-size: 14px;
-//   }
-
-// }

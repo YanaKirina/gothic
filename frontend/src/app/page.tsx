@@ -36,7 +36,7 @@ export default function Home() {
 
   useEffect(() => {
     api
-      .get("/items") // Предположим, что /items - это маршрут на вашем бэкенде
+      .get("/items") 
       .then((res) => setData(res.data))
       .catch((error) => console.error("Ошибка при получении данных:", error));
   }, []);

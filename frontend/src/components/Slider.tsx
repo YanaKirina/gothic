@@ -4,7 +4,7 @@ import { Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 
-import styles from "./Slider.module.scss";
+import styles from "./styles/Slider.module.scss";
 
 interface SliderProps {
   title: string;
@@ -39,10 +39,11 @@ const Slider: React.FC<SliderProps> = ({ title, backgroundColor = "white", cardB
       <Swiper
         modules={[Pagination]}
         pagination={{ clickable: true }}
-        spaceBetween={30}
+        spaceBetween={20}
         slidesPerView={3}
         breakpoints={{
-          640: { slidesPerView: 2 },
+          100:{slidesPerView : 1},
+          450: { slidesPerView: 2 },
           1024: { slidesPerView: 3 },
         }}
         onSwiper={(swiper) => (swiperRef.current = swiper)}

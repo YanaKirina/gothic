@@ -1,5 +1,5 @@
 "use client";
-import styles from "./Navbar.module.scss";
+import styles from "./styles/Navbar.module.scss";
 
 export default function NavbarRegister() {
   return (

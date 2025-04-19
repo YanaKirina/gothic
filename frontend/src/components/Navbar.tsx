@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import styles from "./Navbar.module.scss";
+import styles from "./styles/Navbar.module.scss";
 import { useState, useEffect } from "react";
 
 export default function Navbar() {
@@ -19,7 +19,10 @@ export default function Navbar() {
 
   return (
     <nav className={styles.navbar}>
-      <img src="/icons/Logo.svg" alt="Яна творит" className={styles.logo} />
+      <Link href="/" className={styles.logo}>
+        <img src="/icons/Logo.svg" alt="" />
+        <p>Яна творит</p>
+      </Link>
 
       <div className={`${styles.menu} ${isMenuOpen ? styles.menuOpen : ""}`}>
         <ul>
@@ -41,18 +44,22 @@ export default function Navbar() {
         </ul>
 
         <div className={styles.icons}>
+        <Link href="/">
           <button>
             <img src="/icons/Home.svg" />
           </button>
+        </Link>
           <button>
             <img src="/icons/Heart.svg" />
           </button>
           <button>
             <img src="/icons/Cart.svg" />
           </button>
-          <button>
-            <img src="/icons/User.svg" />
-          </button>
+          <Link href="/profile">
+            <button>
+              <img src="/icons/User.svg" />
+            </button>
+          </Link>
         </div>
       </div>
 

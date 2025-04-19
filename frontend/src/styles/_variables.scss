@@ -4,6 +4,18 @@ $white: #EDF2FC;
 $black: #090B2D;
 $violet: #3A3C5F;
 
+@font-face {
+  font-family: 'Rubik Wet Paint';
+  src: url('../fonts/Rubik Wet Paint/RubikWetPaint-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.logo{
+  font-family: 'Rubik Wet Paint', sans-serif;
+  color: $white;
+}
+
 
 .container{
   padding: 40px 7vw;

@@ -1,9 +1,10 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, ConflictException, UnauthorizedException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import * as bcrypt from 'bcryptjs';
-import * as jwt from 'jsonwebtoken';
-import { User } from './user.entity';
+import { User } from './entities/user.entity';
+import { RegisterDto } from './dto/register.dto';
+import { LoginDto } from './dto/login.dto';
+import * as bcrypt from 'bcrypt';
 
 @Injectable()
 export class AuthService {
@@ -12,31 +13,48 @@ export class AuthService {
     private userRepository: Repository<User>,
   ) {}
 
-  async register(email: string, password: string) {
+  async register(registerDto: RegisterDto): Promise<User> {
+    const { email, password, firstName, lastName } = registerDto;
+
+    // Проверяем, существует ли пользователь с таким email
     const existingUser = await this.userRepository.findOne({ where: { email } });
     if (existingUser) {
-      throw new Error('Пользователь с таким email уже существует');
+      throw new ConflictException('User with this email already exists');
     }
 
+    // Хешируем пароль
     const hashedPassword = await bcrypt.hash(password, 10);
-    const user = this.userRepository.create({ email, password: hashedPassword });
-    await this.userRepository.save(user);
-    return this.generateToken(user);
+
+    // Создаем нового пользователя
+    const user = this.userRepository.create({
+      email,
+      password: hashedPassword,
+      firstName,
+      lastName,
+    });
+
+    return this.userRepository.save(user);
   }
 
-  async login(email: string, password: string) {
+  async login(loginDto: LoginDto): Promise<User> {
+    const { email, password } = loginDto;
+
+    // Находим пользователя по email
     const user = await this.userRepository.findOne({ where: { email } });
-    if (!user || !(await bcrypt.compare(password, user.password))) {
-      throw new Error('Неверный email или пароль');
+    if (!user) {
+      throw new UnauthorizedException('Invalid credentials');
     }
-    return this.generateToken(user);
-  }
 
-  private generateToken(user: User) {
-    return jwt.sign(
-      { id: user.id, email: user.email },
-      process.env.JWT_SECRET || 'your_secret_key',
-      { expiresIn: '7d' }
-    );
+    // Проверяем пароль
+    const isPasswordValid = await bcrypt.compare(password, user.password);
+    if (!isPasswordValid) {
+      throw new UnauthorizedException('Invalid credentials');
+    }
+
+    // Обновляем время последнего входа
+    user.lastLoginAt = new Date();
+    await this.userRepository.save(user);
+
+    return user;
   }
-}
+} 

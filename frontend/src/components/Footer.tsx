@@ -1,7 +1,7 @@
 "use client";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
-import styles from "./Footer.module.scss";
+import styles from "./styles/Footer.module.scss";
 
 export default function Footer() {
   const pathname = usePathname();
