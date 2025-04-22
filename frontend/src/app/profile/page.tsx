@@ -16,13 +16,23 @@ export default function Profile() {
   const router = useRouter();
   const [userData, setUserData] = useState<UserData | null>(null);
 
+  const handleLogout = () => {
+    localStorage.removeItem('user');
+    router.push('/login');
+  };
+
   useEffect(() => {
-    // Получаем данные пользователя из localStorage
     const user = localStorage.getItem('user');
-    if (user) {
-      setUserData(JSON.parse(user));
-    } else {
-      // Если данных нет, перенаправляем на страницу входа
+    if (!user) {
+      router.push('/login');
+      return;
+    }
+    
+    try {
+      const parsedUser = JSON.parse(user);
+      setUserData(parsedUser);
+    } catch (error) {
+      console.error('Ошибка при парсинге данных пользователя:', error);
       router.push('/login');
     }
   }, [router]);

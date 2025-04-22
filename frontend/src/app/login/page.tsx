@@ -31,7 +31,6 @@ export default function AuthorizationPage() {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(formData),
-        credentials: 'include',
       });
 
       if (!response.ok) {
@@ -40,8 +39,12 @@ export default function AuthorizationPage() {
       }
 
       const data = await response.json();
-      console.log('Успешная авторизация:', data);
-      router.push('/'); // Перенаправление на главную страницу после успешной авторизации
+      
+      // Сохраняем данные пользователя в localStorage
+      localStorage.setItem('user', JSON.stringify(data.user));
+      
+      // Перенаправляем на страницу профиля
+      router.push('/profile');
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Произошла ошибка при авторизации');
     }

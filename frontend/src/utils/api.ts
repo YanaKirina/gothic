@@ -1,5 +1,5 @@
 import axios from 'axios';
 
 export const api = axios.create({
-  baseURL: 'http://localhost:3000', // Порт, на котором работает ваш NestJS
+  baseURL: 'http://localhost:5000', // Порт, на котором работает ваш NestJS бэкенд
 });
