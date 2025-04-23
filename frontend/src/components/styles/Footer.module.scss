@@ -4,12 +4,12 @@
 .footer {
   background-color: $black !important;
   color: $white;
-  // padding: 100px 8vw;
+  font-weight: bold;
 }
+
 
 .content {
   display: flex;
-  flex-direction: column;
   gap: 2rem;
   flex-direction: row;
 }
@@ -65,7 +65,6 @@
   }
   .email {
     color: $blue;
-    text-decoration: underline;
   }
   .socialIcons {
     display: flex;
@@ -83,17 +82,18 @@
   }
 }
 
-.registerFooter {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  text-align: center;
-  // width: 100%;
-  padding: 20px;
+@media (max-width: 768px) {
+  .content {
+    flex-direction: column;
+ }
 }
 
-.registerContent .logo {
-  width: 300px;
-  margin-bottom: 10px;
+@media (max-width: 425px) {
+  .content {
+    flex-direction: column;
+    // align-items: center;
+ }
+ .rightSection {
+  flex-direction: column;
+}
 }

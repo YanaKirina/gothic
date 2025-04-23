@@ -58,14 +58,12 @@ export default function Home() {
         buttonBackground="white"
       />
       <div className="stocks">
-        <div>
+        <div className="left-stocks">
           <h2>1 + 1 = 3</h2>
           <p>Закажите два товара и получите третий бесплатно</p>
           <button>Перейти в каталог</button>
         </div>
-        <div>
-          <img src="/icons/LogoLeft.svg"/>
-        </div>
+          <h2 className="logo">Яна <br></br>Творит</h2>
       </div>
       <Slider
         title="Мы рекомендуем"

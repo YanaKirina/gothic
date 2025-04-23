@@ -52,6 +52,7 @@ button {
 }
 
 
+
 h2{
   font-size: 50px;
   font-family: 'Lighthaus';
@@ -68,21 +69,18 @@ span {
   padding: 40px 8vw;
   color: $white;
   position: relative;
-  div{
-    flex: 1;
+  
+  .left-stocks{
+    width: 60%;
   }
   h2{
-    font-size: 150px;
+    font-size: 140px;
     margin: 0;
   }
   p{
     font-size: 35px;
   }
-  img{
-    position: absolute;
-    bottom: 0;
-    right: 0;
-  }
+
   button{
     font-size: 18px;
     padding: 15px 130px;
@@ -91,6 +89,15 @@ span {
     border: 0;
     cursor: pointer;
     
+  }
+  .logo{
+    font-family: 'Rubik Wet Paint', sans-serif;
+    font-weight: normal;
+    position: absolute;
+    text-align: end;
+    line-height: 0.9;
+    bottom: 10px;
+    right: 0;
   }
 }
 
@@ -104,6 +111,22 @@ span {
     font-size: 25px;
   }
 
+  .stocks{
+    
+    padding: 15px 5vw;
+    
+    h2{
+      font-size: 100px;
+    }
+    p{
+      font-size: 25px;
+    }
+  
+    button{
+      font-size: 16px;
+      padding: 15px 70px;
+    }
+  }
 }
 
 @media (max-width: 768px) {
@@ -116,6 +139,36 @@ span {
   button{
     font-size: 16px;
   }
+  .stocks{
+    
+    padding: 15px 5vw;
+    
+    h2{
+      font-size: 50px;
+    }
+    p{
+      font-size: 15px;
+    }
+  
+    button{
+      padding: 5px 10px;
+      font-size: 16px;
+    }
+  }
+}
 
+@media (max-width: 425px) {
+  .stocks{
+    h2{
+      font-size: 30px;
+    }
+    p{
+      font-size: 14px;
+    }
+    button{
+      padding: 5px 10px;
+      font-size: 14px;
+    }
+  }
 }
 

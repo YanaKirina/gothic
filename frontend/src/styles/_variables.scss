@@ -16,6 +16,17 @@ $violet: #3A3C5F;
   color: $white;
 }
 
+.logo {
+  // width: 250px;
+  // font-size: 30px;
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+  align-items: center;
+
+
+}
+
 
 .container{
   padding: 40px 7vw;

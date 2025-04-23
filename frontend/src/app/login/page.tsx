@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import styles from "../register/Register.module.scss";
 
@@ -76,10 +77,11 @@ export default function AuthorizationPage() {
           />
           <button type="submit" className={styles.button}>Войти</button>
         </form>
+        <Link href="/register">
         <button className={styles.button}>
-          <span>Нет аккаунт?</span>
-          <a href="/register" className={styles.loginLink}>Регистрация</a>
+          Регистрация
         </button>
+        </Link>
       </div>
     </div>
   );
