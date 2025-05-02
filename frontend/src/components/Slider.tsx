@@ -1,8 +1,8 @@
 import { useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
-import "swiper/css";
-import "swiper/css/pagination";
+// import "swiper/css";
+// import "swiper/css/pagination";
 
 import styles from "./styles/Slider.module.scss";
 
@@ -53,9 +53,9 @@ const Slider: React.FC<SliderProps> = ({ title, backgroundColor = "white", cardB
           <SwiperSlide key={product.id}>
             <div className={styles.productCard}>
               <div className={styles.Card}  style={{ backgroundColor: cardBackground }} >
-                <img src={product.image} alt={product.title}/>
+                <img src={product.image} alt={product.title} className={styles.img}/>
                 <button style={{ backgroundColor: buttonBackground }}>
-                  <img src="/icons/Heart.svg" alt="" />
+                  <img src="/icons/Heart.svg" alt="" className={styles.img}/>
                 </button>
               </div>
               <div className={styles.CardBottom}>

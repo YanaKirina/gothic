@@ -32,8 +32,40 @@ $violet: #3A3C5F;
   padding: 40px 7vw;
 }
 
+.prev,
+.next {
+  position: absolute;
+  top: 50%;
+  color: $black;
+  width: 5vw;
+  height: 3vw;
+  // padding: 15wv 3wv;
+  background: none;
+  cursor: pointer;
+  font-size: 2vw;
+  text-align: center;
+  border: 1px;
+  border-color: $black;
+
+  &:hover {
+    background-color: $black;
+    color: $white;
+  }
+}
+
+.prev {
+  left: -2px;
+}
+
+.next {
+  right: -2px;
+}
+
 @media (max-width: 1024px) {
   .container{
     padding: 15px 5vw;
+  }
+  .prev ,.next {
+    display: none;
   }
 }

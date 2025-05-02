@@ -1,0 +1,53 @@
+@use "@/styles/_variables.scss" as *;
+
+.container {
+  background-color: $white;
+  text-align: center;
+  font-weight: bold;
+}
+
+.grid {
+  display: grid;
+  gap: 50px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.card {
+  text-align: left;
+  .icon {
+    background-color: $black;
+    width: 50px;
+    height: 50px;
+    //   border-radius: 10px;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    // margin-bottom: 1rem;
+  }
+
+  p {
+    color: $black;
+  }
+  h3{
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 1024px) {
+    .grid {
+        gap: 30px;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    .card{
+        .icon {
+            width: 30px;
+            height: 30px;
+            padding: 10px;
+
+        }
+        h3{
+            font-size: 18px;
+          }
+    }
+}

@@ -3,10 +3,14 @@
 .container {
   background-color: $white;
   text-align: center;
-}
-.container {
   position: relative;
+  color: $black;
 }
+
+.Rewiev .container {
+  background-color: white;
+}
+
 .productCard {
 
   padding-bottom: 30px;
@@ -45,41 +49,12 @@
       font-weight: italic;
     }
   }
-  img{
+  .img{
     width: 100%;
     aspect-ratio: 1 / 1;
-
   }
 }
 
-.prev,
-.next {
-  position: absolute;
-  top: 50%;
-  color: $black;
-  width: 5vw;
-  height: 3vw;
-  // padding: 15wv 3wv;
-  background: none;
-  cursor: pointer;
-  font-size: 2vw;
-  text-align: center;
-  border: 1px;
-  border-color: $black;
-
-  &:hover {
-    background-color: $black;
-    color: $white;
-  }
-}
-
-.prev {
-  left: -2px;
-}
-
-.next {
-  right: -2px;
-}
 
 .navigationButton{
   font-size: 18px;
@@ -119,9 +94,7 @@
   .navigationButton{
     margin-top: 15px;
   }
-  .prev ,.next {
-    display: none;
-  }
+  
 
   .productCard {
     padding-bottom: 15px;

@@ -5,31 +5,11 @@ import { api } from "@/utils/api"; // Путь зависит от вашей с
 import Header from "@/components/Header";
 import Categories from "@/components/Categories";
 import Slider from "@/components/Slider";
+import Reviews from "@/components/Reviews";
+import WhyChooseUs from "@/components/WhyChooseUs"
 import '../styles/globals.scss';
 
 
-
-
-const bestSellers = [
-  {
-    id: 1,
-    image: "/images/teapot.png",
-    title: "Медный чайник с фарфоровой ручкой",
-    price: "1 953",
-  },
-  {
-    id: 2,
-    image: "/images/teapot.png",
-    title: "Медный чайник с фарфоровой ручкой",
-    price: "1 953",
-  },
-  {
-    id: 3,
-    image: "/images/teapot.png",
-    title: "Медный чайник с фарфоровой ручкой",
-    price: "1 953",
-  },
-];
 
 export default function Home() {
   const [data, setData] = useState<any[]>([]);
@@ -77,6 +57,14 @@ export default function Home() {
         cardBackground=""
         buttonBackground=""
       />
+      {/* <Slider
+        title="Скидки"
+        backgroundColor="white"
+        cardBackground=""
+        buttonBackground=""
+      /> */}
+      <Reviews/>
+      <WhyChooseUs/>
     </main>
   );
 }

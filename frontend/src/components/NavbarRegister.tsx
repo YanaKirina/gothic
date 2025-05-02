@@ -1,7 +1,7 @@
 "use client";
 import styles from "./styles/Navbar.module.scss";
 
-export default function NavbarRegister() {
+const NavbarRegister = () =>  {
   return (
     <nav className={styles.navbar}>
       {/* Логотип по центру */}
