@@ -2,15 +2,15 @@
 
 // import { useEffect, useState } from "react";
 import styles from "./Profile.module.scss";
-import { useRouter } from "next/navigation";
+// import { useRouter } from "next/navigation";
 
-interface UserData {
-  id: number;
-  email: string;
-  firstName: string;
-  lastName: string;
-  avatar?: string;
-}
+// interface UserData {
+//   id: number;
+//   email: string;
+//   firstName: string;
+//   lastName: string;
+//   avatar?: string;
+// }
 
 export default function Profile() {
   // const router = useRouter();

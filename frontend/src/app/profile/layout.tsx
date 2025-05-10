@@ -1,7 +1,7 @@
 "use client"
 import { ReactNode } from "react";
-import styles from "./Profile.module.scss"; // если хочешь стилизовать отдельно
-import { useRouter } from "next/navigation";
+import styles from "./Profile.module.scss";
+// import { useRouter } from "next/navigation";
 
 export default function ProfileLayout({ children }: { children: ReactNode }) {
   // const router = useRouter();
