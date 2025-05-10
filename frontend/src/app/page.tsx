@@ -1,7 +1,5 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { api } from "@/utils/api"; // Путь зависит от вашей структуры проекта
 import Header from "@/components/Header";
 import Categories from "@/components/Categories";
 import Slider from "@/components/Slider";

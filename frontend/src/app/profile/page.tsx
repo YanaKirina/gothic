@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 import styles from "./Profile.module.scss";
 import { useRouter } from "next/navigation";
 
@@ -13,46 +13,46 @@ interface UserData {
 }
 
 export default function Profile() {
-  const router = useRouter();
-  const [userData, setUserData] = useState<UserData | null>(null);
+  // const router = useRouter();
+  // const [userData, setUserData] = useState<UserData | null>(null);
 
   // const handleLogout = () => {
   //   localStorage.removeItem('user');
   //   router.push('/login');
   // };
 
-  useEffect(() => {
-    const user = localStorage.getItem('user');
-    if (!user) {
-      router.push('/login');
-      return;
-    }
+  // useEffect(() => {
+  //   const user = localStorage.getItem('user');
+  //   if (!user) {
+  //     router.push('/login');
+  //     return;
+  //   }
     
-    try {
-      const parsedUser = JSON.parse(user);
-      setUserData(parsedUser);
-    } catch (error) {
-      console.error('Ошибка при парсинге данных пользователя:', error);
-      router.push('/login');
-    }
-  }, [router]);
+  //   try {
+  //     const parsedUser = JSON.parse(user);
+  //     setUserData(parsedUser);
+  //   } catch (error) {
+  //     console.error('Ошибка при парсинге данных пользователя:', error);
+  //     router.push('/login');
+  //   }
+  // }, [router]);
 
-  if (!userData) {
-    return <div>Загрузка...</div>;
-  }
+  // if (!userData) {
+  //   return <div>Загрузка...</div>;
+  // }
 
   return (
     <div className={styles.profile}>
       <div className={styles.top}>
         <div className={styles.avatar}>
           <img 
-            src={userData.avatar || "/avatar.png"} 
+            // src={userData.avatar || "/avatar.png"} 
             alt="Фото профиля" 
           />
         </div>
         <div>
           <h3>
-            <em>{`${userData.firstName} ${userData.lastName}`}</em>
+            {/* <em>{`${userData.firstName} ${userData.lastName}`}</em> */}
           </h3>
           <label className={styles.upload}>
             <input type="file" hidden />⬇ Загрузить фото{" "}
@@ -66,7 +66,7 @@ export default function Profile() {
           <label>Имя</label>
           <input 
             type="text" 
-            value={userData.firstName}
+            // value={userData.firstName}
             readOnly
           />
         </div>
@@ -74,7 +74,7 @@ export default function Profile() {
           <label>Фамилия</label>
           <input 
             type="text" 
-            value={userData.lastName}
+            // value={userData.lastName}
             readOnly
           />
         </div>
@@ -82,7 +82,7 @@ export default function Profile() {
           <label>E-mail</label>
           <input 
             type="email" 
-            value={userData.email}
+            // value={userData.email}
             readOnly
           />
         </div>
@@ -97,7 +97,7 @@ export default function Profile() {
       <button 
         type="button" 
         className={styles.editButton}
-        onClick={() => router.push('/profile/edit')}
+        // onClick={() => router.push('/profile/edit')}
       >
         Редактировать профиль
       </button>

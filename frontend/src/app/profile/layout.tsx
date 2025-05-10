@@ -4,7 +4,7 @@ import styles from "./Profile.module.scss"; // если хочешь стили�
 import { useRouter } from "next/navigation";
 
 export default function ProfileLayout({ children }: { children: ReactNode }) {
-  const router = useRouter();
+  // const router = useRouter();
 
   // const handleLogout = () => {
   //   localStorage.removeItem('user');
@@ -28,7 +28,8 @@ export default function ProfileLayout({ children }: { children: ReactNode }) {
             <img src="/icons/Heart.svg"/>
             <p>Список желаемого</p>
         </button>
-        <button onClick={handleLogout}>
+        {/* <button onClick={handleLogout}> */}
+        <button>
             <img src="/icons/Exit.svg"/>
             <p>Выйти</p>
         </button>
