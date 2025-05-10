@@ -41,10 +41,8 @@ export default function AuthorizationPage() {
 
       const data = await response.json();
       
-      // Сохраняем данные пользователя в localStorage
       localStorage.setItem('user', JSON.stringify(data.user));
       
-      // Перенаправляем на страницу профиля
       router.push('/profile');
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Произошла ошибка при авторизации');

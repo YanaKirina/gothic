@@ -16,10 +16,10 @@ export default function Profile() {
   const router = useRouter();
   const [userData, setUserData] = useState<UserData | null>(null);
 
-  const handleLogout = () => {
-    localStorage.removeItem('user');
-    router.push('/login');
-  };
+  // const handleLogout = () => {
+  //   localStorage.removeItem('user');
+  //   router.push('/login');
+  // };
 
   useEffect(() => {
     const user = localStorage.getItem('user');

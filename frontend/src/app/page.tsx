@@ -12,14 +12,6 @@ import '../styles/globals.scss';
 
 
 export default function Home() {
-  const [data, setData] = useState<any[]>([]);
-
-  useEffect(() => {
-    api
-      .get("/items") 
-      .then((res) => setData(res.data))
-      .catch((error) => console.error("Ошибка при получении данных:", error));
-  }, []);
 
   return (
     <main>
@@ -57,12 +49,6 @@ export default function Home() {
         cardBackground=""
         buttonBackground=""
       />
-      {/* <Slider
-        title="Скидки"
-        backgroundColor="white"
-        cardBackground=""
-        buttonBackground=""
-      /> */}
       <Reviews/>
       <WhyChooseUs/>
     </main>
