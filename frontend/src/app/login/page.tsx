@@ -1,8 +1,8 @@
 'use client';
 
-import { useState } from 'react';
+// import { useState } from 'react';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
+// import { useRouter } from 'next/navigation';
 import styles from "../register/Register.module.scss";
 
 export default function AuthorizationPage() {
