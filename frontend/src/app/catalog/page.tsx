@@ -3,16 +3,8 @@
 import styles from "./Catalog.module.scss";
 
 const products = [
-  {
-    id: 1,
-    image: "/clozes/dress.svg",
-    title: "Шифоновая блузка",
-    price: 2000,
-    isOnSale: true,
-    isFavorite: true,
-  },
   { id: 2, image: "/clozes/dress.svg", title: "Готическая юбка", price: 3000 },
-  { id: 3, image: "/clozes/dress.svg", title: "Платье", price: 4000 },
+  { id: 3, image: "/clozes/backpack.svg", title: "Платье", price: 4000 },
   { id: 4, image: "/clozes/dress.svg", title: "Куртка", price: 3500 },
   { id: 5, image: "/clozes/dress.svg", title: "Пальто", price: 5000 },
   { id: 6, image: "/clozes/dress.svg", title: "Тренч", price: 4600 },
@@ -53,7 +45,7 @@ export default function CatalogPage() {
               <div className={styles.Card}>
                 <img src={p.image} alt={p.title} className={styles.img} />
                 <button>
-                  <img src="/icons/Heart.svg" alt="" className={styles.img} />
+                  <img src="/icons/Heart.svg" alt=""/>
                 </button>
               </div>
               <div className={styles.CardBottom}>

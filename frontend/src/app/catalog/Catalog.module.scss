@@ -1,106 +1,136 @@
 @use "@/styles/_variables.scss" as *;
 
 .container {
-    background-color: $white;
-    position: flex;
-    flex-direction: column;
-    text-align: center;
-  }
-  
-  .categories {
-    display: flex;
-    gap: 30px;
-    margin-bottom: 50px;
-    .categoryCard{
-      background-color: white;
-      padding: 20px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      border: 0px;
-      // font-size: 30px;
-      transition: 0.3s ease-in-out;
-      aspect-ratio: 1 / 1;
-      width: 100%;
-      
-      &:hover {
-          transform: translateY(-5px);
-          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-          cursor: pointer;
-        }
-      img {
-          max-width: 100%;
-          aspect-ratio: 1 / 1;
-          height: 100%;
-          flex-grow: 1;
-          padding-bottom: 10px;
-      }
-  }
-  }
-  
-  .controls {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 2rem;
-  
-    .search {
-      width: 200px;
-      padding: 0.5rem;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-    }
-  
-    .sort {
-      font-size: 0.9rem;
-    }
-  }
-  
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-    .productCard {
+  background-color: $white;
+  position: flex;
+  flex-direction: column;
+  text-align: center;
+}
 
-      padding-bottom: 30px;
-      position: relative;
-      width: 100%;
+.categories {
+  display: grid;
+  grid-template-columns: repeat(4,  1fr);;
+  gap: 30px;
+  margin-bottom: 50px;
+  .categoryCard {
+    background-color: white;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border: 0px;
+    transition: 0.3s ease-in-out;
+    position: relative;
+    padding-bottom: 30px;
+
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      cursor: pointer;
+    }
+    img {
+      max-width: 100%;
       aspect-ratio: 1 / 1;
-    
-    
-      .Card {
-        // width: 100%;
-        padding: 15px;
-        background-color: white;
-        height: auto;
-        
+      margin: 10px;
+      
+    }
+    span{
+      position: absolute;
+      bottom: 5px;
+    }
+  }
+}
+
+.controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+
+  .search {
+    width: 200px;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+  }
+
+  .sort {
+    font-size: 0.9rem;
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 20px;
+  .productCard {
+    flex: 1;
+    position: relative;
+
+    .Card {
+      width: 100%;
+      background-color: white;
+      aspect-ratio: 1 / 1;
+      height: auto;
+    }
+    .img{
+      margin: 15px;
+      height: 100%;
+      width: 100%;
+    }
+    button {
+      position: absolute;
+      background-color: $white;
+      width: 50px;
+      height: 60px;
+      border: 0;
+      top: 0;
+      right: 0;
+      cursor: pointer;
+    }
+
+    .CardBottom {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+
+      h3 {
+        font-size: 20px;
       }
-    
-      button {
-        position: absolute;
-        background-color: $white;
-        width: 50px;
-        height: 60px;
-        border: 0;
-        top: 0;
-        right: 0;
-        cursor: pointer;
-      }
-    
-      .CardBottom{
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-    
-        h3{
-          font-size: 20px;
-        }
-        p{
-          font-size: 30px;
-        }
+      p {
+        font-size: 30px;
       }
     }
   }
-  
+}
+
+@media (max-width: 1024px) {
+  .grid {
+
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+  }
+}
+
+@media (max-width: 728px) {
+   .categories {
+    grid-template-columns: repeat(2,  1fr);
+  }
+  .grid {
+
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px;
+  }
+}
+
+@media (max-width: 728px) {
+  .grid {
+
+    grid-template-columns: repeat(1, 1fr);
+    .img{
+      width: 80%;
+    }
+  }
+}

@@ -1,10 +1,18 @@
 "use client";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import styles from "./styles/Navbar.module.scss";
 import { useState, useEffect } from "react";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const router = useRouter();
+
+  const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, path: string) => {
+    e.preventDefault();
+    setIsMenuOpen(false);
+    router.push(path);
+  };
 
   useEffect(() => {
     if (isMenuOpen) {
@@ -27,39 +35,39 @@ export default function Navbar() {
       <div className={`${styles.menu} ${isMenuOpen ? styles.menuOpen : ""}`}>
         <ul>
           <li>
-            <Link href="/catalog">Каталог</Link>
+            <a href="/catalog" onClick={(e) => handleLinkClick(e, "/catalog")}>Каталог</a>
           </li>
           <li>
-            <Link href="/news">Новости</Link>
+            <a href="/news" onClick={(e) => handleLinkClick(e, "/news")}>Новости</a>
           </li>
           <li>
-            <Link href="/delivery">Доставка</Link>
+            <a href="/delivery" onClick={(e) => handleLinkClick(e, "/delivery")}>Доставка</a>
           </li>
           <li>
-            <Link href="/about">О нас</Link>
+            <a href="/about" onClick={(e) => handleLinkClick(e, "/about")}>О нас</a>
           </li>
           <li>
-            <Link href="/contacts">Контакты</Link>
+            <a href="/contacts" onClick={(e) => handleLinkClick(e, "/contacts")}>Контакты</a>
           </li>
         </ul>
 
         <div className={styles.icons}>
-        <Link href="/">
-          <button>
-            <img src="/icons/Home.svg" />
-          </button>
-        </Link>
+          <a href="/" onClick={(e) => handleLinkClick(e, "/")}>
+            <button>
+              <img src="/icons/Home.svg" />
+            </button>
+          </a>
           <button>
             <img src="/icons/Heart.svg" />
           </button>
           <button>
             <img src="/icons/Cart.svg" />
           </button>
-          <Link href="/profile">
+          <a href="/profile" onClick={(e) => handleLinkClick(e, "/profile")}>
             <button>
               <img src="/icons/User.svg" />
             </button>
-          </Link>
+          </a>
         </div>
       </div>
 
