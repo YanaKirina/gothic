@@ -1,5 +1,10 @@
 import { Entity, Column, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn } from 'typeorm';
 
+export enum UserRole {
+  ADMIN = 'ADMIN',
+  USER = 'USER',
+}
+
 @Entity('users')
 export class User {
   @PrimaryGeneratedColumn()
@@ -16,6 +21,13 @@ export class User {
 
   @Column()
   lastName: string;
+
+  @Column({
+    type: 'enum',
+    enum: UserRole,
+    default: UserRole.USER,
+  })
+  role: UserRole;
 
   @Column({ name: 'isEmailVerified', default: false })
   emailVerified: boolean;

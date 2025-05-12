@@ -1,9 +1,10 @@
 import { Injectable, ConflictException, UnauthorizedException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { User } from './entities/user.entity';
+import { User, UserRole } from './entities/user.entity';
 import { RegisterDto } from './dto/register.dto';
 import { LoginDto } from './dto/login.dto';
+import { JwtService } from '@nestjs/jwt';
 import * as bcrypt from 'bcrypt';
 
 @Injectable()
@@ -11,9 +12,10 @@ export class AuthService {
   constructor(
     @InjectRepository(User)
     private userRepository: Repository<User>,
+    private jwtService: JwtService,
   ) {}
 
-  async register(registerDto: RegisterDto): Promise<User> {
+  async register(registerDto: RegisterDto): Promise<{ user: User; token: string }> {
     const { email, password, firstName, lastName } = registerDto;
 
     // Проверяем, существует ли пользователь с таким email
@@ -31,12 +33,16 @@ export class AuthService {
       password: hashedPassword,
       firstName,
       lastName,
+      role: UserRole.USER, // По умолчанию роль USER
     });
 
-    return this.userRepository.save(user);
+    const savedUser = await this.userRepository.save(user);
+    const token = this.generateToken(savedUser);
+
+    return { user: savedUser, token };
   }
 
-  async login(loginDto: LoginDto): Promise<User> {
+  async login(loginDto: LoginDto): Promise<{ user: User; token: string }> {
     const { email, password } = loginDto;
 
     // Находим пользователя по email
@@ -55,6 +61,17 @@ export class AuthService {
     user.lastLoginAt = new Date();
     await this.userRepository.save(user);
 
-    return user;
+    const token = this.generateToken(user);
+    return { user, token };
+  }
+
+  private generateToken(user: User): string {
+    const payload = {
+      sub: user.id,
+      email: user.email,
+      role: user.role,
+    };
+
+    return this.jwtService.sign(payload);
   }
 } 

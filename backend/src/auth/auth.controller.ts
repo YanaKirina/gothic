@@ -1,7 +1,11 @@
-import { Controller, Post, Body, HttpException, HttpStatus } from '@nestjs/common';
+import { Controller, Post, Body, HttpException, HttpStatus, UseGuards, Get, Request } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { RegisterDto } from './dto/register.dto';
 import { LoginDto } from './dto/login.dto';
+import { JwtAuthGuard } from './guards/jwt-auth.guard';
+import { RolesGuard } from './guards/roles.guard';
+import { Roles } from './guards/roles.guard';
+import { UserRole } from './entities/user.entity';
 
 @Controller('auth')
 export class AuthController {
@@ -25,5 +29,21 @@ export class AuthController {
     } catch (error) {
       throw new HttpException(error.message, HttpStatus.UNAUTHORIZED);
     }
+  }
+
+  @UseGuards(JwtAuthGuard, RolesGuard)
+  @Roles(UserRole.ADMIN)
+  @Get('admin-only')
+  getAdminData(@Request() req) {
+    return {
+      message: 'This is admin only data',
+      user: req.user,
+    };
+  }
+
+  @UseGuards(JwtAuthGuard)
+  @Get('profile')
+  getProfile(@Request() req) {
+    return req.user;
   }
 } 

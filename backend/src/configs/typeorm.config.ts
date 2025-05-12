@@ -1,16 +1,28 @@
 import { TypeOrmModuleOptions } from '@nestjs/typeorm';
-import { User } from '../user/entities/user.entity';
+import { DataSource, DataSourceOptions } from 'typeorm';
+import { config } from 'dotenv';
+import { join } from 'path';
 
-export const typeOrmConfig: TypeOrmModuleOptions = {
+config();
+
+const baseConfig: DataSourceOptions = {
   type: 'postgres',
-  host: process.env.DB_HOST || 'database',
-  port: process.env.DB_PORT ? parseInt(process.env.DB_PORT) : 5432,
-  username: process.env.DB_USERNAME || 'postgres',
-  password: process.env.DB_PASSWORD || 'password',
-  database: process.env.DB_DATABASE || 'mydb',
-  entities: [User],
-  synchronize: true, // В продакшене должно быть false
-  migrations: ['dist/migrations/*.js'],
+  host: 'database', // В Docker всегда используем имя сервиса
+  port: 5432,
+  username: 'postgres',
+  password: 'password',
+  database: 'mydb',
+  entities: [join(__dirname, '..', '**', '*.entity.{ts,js}')],
+  migrations: [join(__dirname, '..', 'migrations', '*.{ts,js}')],
   migrationsTableName: 'migrations',
-  migrationsRun: true,
-}; 
+};
+
+// Конфигурация для NestJS
+export const typeOrmConfig: TypeOrmModuleOptions = {
+  ...baseConfig,
+  synchronize: false, // Отключаем автоматическую синхронизацию
+  migrationsRun: true, // Включаем запуск миграций
+} as TypeOrmModuleOptions;
+
+// Конфигурация для миграций
+export default new DataSource(baseConfig); 
