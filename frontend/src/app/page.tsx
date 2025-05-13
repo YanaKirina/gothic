@@ -7,7 +7,13 @@ import Reviews from "@/components/Reviews";
 import WhyChooseUs from "@/components/WhyChooseUs"
 import '../styles/globals.scss';
 
+const sales = [
+    { id: 1, image: "/clozes/1.png", title: "Шифоновая блузка", price: 2000 },
+    { id: 2, image: "/clozes/2.png", title: "Готическая юбка", price: 3000 },
+    { id: 3, image: "/clozes/3.png", title: "Платье", price: 4000 },
+    { id: 4, image: "/clozes/1.png", title: "Куртка", price: 3500 },
 
+  ];
 
 export default function Home() {
 
@@ -17,12 +23,14 @@ export default function Home() {
       <Categories />
       <Slider
         title="Лучшие продажи"
+        products={sales}
         backgroundColor=""
         cardBackground=""
         buttonBackground=""
       />
       <Slider
         title="Новинки"
+        products={sales}
         backgroundColor="white"
         cardBackground="#EDF2FC"
         buttonBackground="white"
@@ -37,12 +45,14 @@ export default function Home() {
       </div>
       <Slider
         title="Мы рекомендуем"
+        products={sales}
         backgroundColor="white"
         cardBackground="#EDF2FC"
         buttonBackground="white"
       />
       <Slider
         title="Скидки"
+        products={sales}
         backgroundColor=""
         cardBackground=""
         buttonBackground=""

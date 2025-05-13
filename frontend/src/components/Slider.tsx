@@ -1,28 +1,38 @@
 import { useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
-// import "swiper/css";
-// import "swiper/css/pagination";
-
 import styles from "./styles/Slider.module.scss";
+
+interface Product {
+  id: number;
+  image: string;
+  title: string;
+  price: number;
+}
 
 interface SliderProps {
   title: string;
+  products: Product[];
   backgroundColor?: string;
   cardBackground?: string;
   buttonBackground?: string;
 }
 
 
-const products = [
-  { id: 1, image: "/clozes/dress.svg", title: "Шифоновая блузка", price: 2000 },
-  { id: 2, image: "/clozes/dress.svg", title: "Готическая юбка", price: 3000 },
-  { id: 3, image: "/clozes/dress.svg", title: "Платье", price: 4000 },
-  { id: 4, image: "/clozes/dress.svg", title: "Куртка", price: 3500 },
-  { id: 5, image: "/clozes/dress.svg", title: "Пальто", price: 5000 },
-];
+// const products = [
+//   { id: 1, image: "/clozes/dress.svg", title: "Шифоновая блузка", price: 2000 },
+//   { id: 2, image: "/clozes/dress.svg", title: "Готическая юбка", price: 3000 },
+//   { id: 3, image: "/clozes/dress.svg", title: "Платье", price: 4000 },
+//   { id: 4, image: "/clozes/dress.svg", title: "Куртка", price: 3500 },
+//   { id: 5, image: "/clozes/dress.svg", title: "Пальто", price: 5000 },
+// ];
 
-const Slider: React.FC<SliderProps> = ({ title, backgroundColor = "white", cardBackground, buttonBackground}) => {
+const Slider: React.FC<SliderProps> = ({ 
+  title,
+  products,
+  backgroundColor = "white",
+  cardBackground, 
+  buttonBackground}) => {
   const swiperRef = useRef<any>(null);
 
   return (

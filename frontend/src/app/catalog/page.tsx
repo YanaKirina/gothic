@@ -3,11 +3,15 @@
 import styles from "./Catalog.module.scss";
 
 const products = [
-  { id: 2, image: "/clozes/dress.svg", title: "Готическая юбка", price: 3000 },
-  { id: 3, image: "/clozes/backpack.svg", title: "Платье", price: 4000 },
-  { id: 4, image: "/clozes/dress.svg", title: "Куртка", price: 3500 },
-  { id: 5, image: "/clozes/dress.svg", title: "Пальто", price: 5000 },
-  { id: 6, image: "/clozes/dress.svg", title: "Тренч", price: 4600 },
+  { id: 2, image: "/clozes/1.png", title: "Блузка", price: 3000 },
+  { id: 3, image: "/clozes/2.png", title: "Юбка", price: 4000 },
+  { id: 4, image: "/clozes/3.png", title: "Платье", price: 3500 },
+  { id: 5, image: "/bags/1.png", title: "Сумка", price: 5000 },
+  { id: 6, image: "/bags/2.png", title: "Сумка", price: 4600 },
+  { id: 7, image: "/bags/3.png", title: "Сумка", price: 4600 },
+  { id: 8, image: "/shoes/1.png", title: "Туфли", price: 5000 },
+  { id: 9, image: "/shoes/2.png", title: "Туфли", price: 4600 },
+  { id: 10, image: "/shoes/3.png", title: "Туфли", price: 4600 },
 ];
 
 export default function CatalogPage() {
