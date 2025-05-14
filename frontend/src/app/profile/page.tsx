@@ -4,13 +4,13 @@
 import styles from "./Profile.module.scss";
 // import { useRouter } from "next/navigation";
 
-// interface UserData {
-//   id: number;
-//   email: string;
-//   firstName: string;
-//   lastName: string;
-//   avatar?: string;
-// }
+interface UserData {
+  id: number;
+  email: string;
+  firstName: string;
+  lastName: string;
+  avatar?: string;
+}
 
 export default function Profile() {
   // const router = useRouter();
@@ -46,12 +46,13 @@ export default function Profile() {
       <div className={styles.top}>
         <div className={styles.avatar}>
           <img 
-            // src={userData.avatar || "/avatar.png"} 
+            src={"/avatar.png"} 
             alt="Фото профиля" 
           />
         </div>
         <div>
           <h3>
+            Иван Иванов
             {/* <em>{`${userData.firstName} ${userData.lastName}`}</em> */}
           </h3>
           <label className={styles.upload}>
@@ -63,33 +64,46 @@ export default function Profile() {
 
       <div className={styles.grid}>
         <div className={styles.field}>
-          <label>Имя</label>
           <input 
             type="text" 
-            // value={userData.firstName}
             readOnly
+            placeholder="Номер"
           />
         </div>
         <div className={styles.field}>
-          <label>Фамилия</label>
-          <input 
-            type="text" 
-            // value={userData.lastName}
-            readOnly
-          />
-        </div>
-        <div className={styles.field}>
-          <label>E-mail</label>
+
           <input 
             type="email" 
-            // value={userData.email}
             readOnly
+            // value={userData.email}
+            placeholder="E-mail"
+          />
+        </div>
+        <div className={styles.field}>
+          <input 
+            type="text" 
+            readOnly
+            placeholder="Страна"
+          />
+        </div>
+        <div className={styles.field}>
+          <input 
+            type="text" 
+            readOnly
+            placeholder="Город"
+          />
+        </div>
+        <div className={styles.field}>
+          <input 
+            type="text" 
+            readOnly
+            placeholder="Адресс"
           />
         </div>
       </div>
-
+<h3>Пароль</h3>
       <div className={styles.passwordSection}>
-        <h3>Пароль</h3>
+        
         <input type="password" value="********" readOnly />
         <button type="button">Сменить пароль</button>
       </div>
